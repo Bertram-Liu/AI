@@ -1,0 +1,132 @@
+1. 深度学习介绍
+    神经网络:
+      卷积神经网络  >>> 图像
+      循环神经网络  >>> 自然语言处理
+2. 认识Tensorflow
+    Google 出品
+    架构师: Jeff Dean
+    特点:
+      1) 真正的可移植性
+          CPU GPU TPU
+          安卓, IOS
+      2) 多语言支持
+          c++ python
+      3) 高度的灵活性与效率
+          采用数据流图
+      4) 支持
+          Google
+3. Tensorflow的安装
+    1.0版本 速度最快
+    tf.layers, tf.metrics, tf.losses模块
+    0.12之后可视化
+    运行速度:
+      数据量大:
+        特征多 (图片)
+      算法:
+        设计本身比较复杂
+      CPU:
+        运行操作系统, 处理业务, 计算能力不是特别突出
+    改进:
+      GPU:
+        专门为计算设计
+        使用GPU: *****    (一行代码)
+5. Tensorflow基础     Tensorflow + flow
+    数据流图
+      tensor: 张量
+        数组:
+          numpy: ndarray
+            0, 1, 2维
+          实现矩阵运算:
+            np.dot
+        矩阵:
+            2维
+        张量:
+          tensorflow    >>> numpy
+          tensor数据 (三部分)
+            op类型
+            形状  (阶)        **********************
+            数据类型
+              float
+              int
+              ...
+          属性:
+            graph  默认图
+            op     操作名
+            name   字符串描述
+            shape  形状
+              动态形状
+                生成一个新的张量数据
+                tf.reshape
+                  创建一个新的
+              静态形状
+                没有生成一个新的张量数据
+                tf.Tensor.get_shape
+
+      operation(op): 专门运算的操作节点, 所有操作都是op
+      图(graph): 整个程序的结构
+      会话:
+        运算程序的图
+        分配资源计算
+        掌控资源 (变量的资源, 队列, 多线程(numpy))
+          tensorflow:
+            前端系统:
+              定义程序图的结构
+            后端系统:
+              运算图结构
+      sess.run():
+        启动整个图
+        回话结束后需要进行资源释放
+      上下文管理器:
+        with tf.Session as sess:
+            ...
+            ...
+    计算密集型
+      tensorflow
+      CPU计算
+    IO密集型
+      Django, scipy
+      Http请求
+      磁盘操作
+    可视化Tensorboard学习
+      tf.summary.FileWriter('文件路径', graph=)
+        后台管理
+6. Tensorflow进阶
+7. 实现线性回归
+    线性回归:
+      权重(w)
+      偏置(bias)
+      算法        策略        优化
+      线性回归    均方误差    梯度下降API (学习率)
+
+    1) 准备好1特征和1目标值
+    2) 建立模型 (随机初始化)
+        一个权重, 一个偏置
+        y_pridict = xw + b  (模型参数必须用变量定义)
+    3) 求损失函数, 误差
+    4) 梯度下降减少损失
+        指定学习率
+    矩阵相乘:
+      (m行, n列) * (n行, 1列)  = (m行, 1列) + bias
+
+    出现梯度爆炸/梯度消失
+      1) 重新设计网络
+      2) 调整学习率
+      3) 使用梯度截断
+      4) 使用激活函数
+    作用域:
+    增加变量的显示:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
